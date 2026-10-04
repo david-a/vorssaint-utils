@@ -2720,6 +2720,7 @@ final class CommandBarService: ObservableObject {
                 NSSound.beep()
                 return
             }
+            guard ClipboardHistoryAutoPaste.isEnabled else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 Self.postPasteWhenModifiersReleased(attempt: 0)
             }
